@@ -10,6 +10,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        val EXTRA_CORREO ="extra_correo"
+        val EXTRA_PWD = "extra_pwd"
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

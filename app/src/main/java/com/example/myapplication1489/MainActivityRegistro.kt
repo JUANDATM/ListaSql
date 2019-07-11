@@ -1,5 +1,6 @@
 package com.example.myapplication1489
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,7 @@ import kotlinx.android.synthetic.main.content_main_activity_registro.*
 
 class MainActivityRegistro : AppCompatActivity() {
 
-    companion object{
-        val correo : String =""
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +32,10 @@ class MainActivityRegistro : AppCompatActivity() {
                val admin = adminBD(this )
                if (admin.Ejecuta(sentencia)==1){
                    Toast.makeText(this, "Usuario Agregado con Exito", Toast.LENGTH_SHORT).show();
+                   val lista = Intent (this,MainActivity::class.java)
+                   lista.putExtra(MainActivity.EXTRA_CORREO,ema)
+                   lista.putExtra(MainActivity.EXTRA_PWD,pwd)
+                   startActivity(lista)
                }else{
                    Toast.makeText(this, "ERROR: No se pudo registrar", Toast.LENGTH_SHORT).show();
                }
